@@ -1,10 +1,16 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from streamlit import container
+
 
 GH_ICON = "static/github.png"
 LI_ICON = "static/linkedin.png"
 Noeh = "static/noeh.jpg"
+
+
+st.set_page_config(page_title= 'Noeh Introduction', page_icon=Noeh, layout='wide')
+
 cpp = """
 cout << "Hello, World! I am Noeh!";
 cout << "I am a BSCS - 3 Student from Cebu Institute of Technology - University";
@@ -47,17 +53,19 @@ with st.sidebar:
     * SQL
     * Kotlin
     """)
-
+st.balloons()
 
 left, right = st.columns(2)
 with left:
     st.subheader("Fun Facts About Me")
-    st.success("I flew a C-150 aircraft and still have my SPL up until now. (student)")
-    st.success("I love playing games during my free time, especially FPS and Open World games.")
+    with container(border=True):
+        st.success("I flew a C-150 aircraft and still have my SPL up until now. (student)")
+        st.success("I love playing games during my free time, especially FPS and Open World games.")
 with right:
     st.subheader("Quests")
-    st.info("I want to skydive at least once before I turn 30!")
-    st.info("Leave Philippines")
+    with container(border=True):
+        st.info("I want to skydive at least once before I turn 30!")
+        st.info("Leave Philippines and start a new life abroad and explore the world.")
 
 
 st.divider()
