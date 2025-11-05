@@ -60,7 +60,7 @@ with left:
     st.subheader("Fun Facts About Me")
     with container(border=True):
         st.success("I flew a C-150 aircraft and still have my SPL up until now. (student)")
-        st.success("I love playing games during my free time, especially FPS and Open World games.")
+        st.success("I love playing games during my free time, especially FPS, MOBA, and Open World games.")
 with right:
     st.subheader("Quests")
     with container(border=True):
