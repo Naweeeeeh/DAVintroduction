@@ -97,3 +97,5 @@ with col2:
         st.link_button("LinkedIn", "https://www.linkedin.com/in/naweeeeeh/")
 
 st.subheader("Live with your eyes open to the world, not closed to your wallet. The true richness of life is found in the breadth of our experiences and the courage to try new things, not the depth of our pockets. While we should pursue a life full of adventure, we must guard our hearts against the insatiable hunger of greed, for that is a hunger that is never satisfied and one that corrodes the foundations of all we build together.")
+
+st.markdown("_makulong na sana mga corrupt_")
