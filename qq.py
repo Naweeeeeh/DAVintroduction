@@ -6,7 +6,7 @@ from streamlit_carousel import carousel
 import base64
 
 Noeh = "static/noeh.jpg"
-st.set_page_config(page_title='Noeh Introduction', page_icon=Noeh, layout='wide')
+st.set_page_config(page_title='Noeh Introduction', page_icon=Noeh, layout='wide', initial_sidebar_state = 'expanded')
 
 GH_ICON = "static/github.png"
 LI_ICON = "static/linkedin.png"
