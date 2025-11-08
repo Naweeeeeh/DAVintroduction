@@ -7,7 +7,7 @@ import base64
 
 Noeh = "static/noeh.jpg"
 st.set_page_config(page_title='Noeh Introduction', page_icon=Noeh, layout='wide')
-peakvalo = "static/immortal2.png"
+
 GH_ICON = "static/github.png"
 LI_ICON = "static/linkedin.png"
 IMAGE_FILE = "static/radiant_dire5.jpg"
@@ -34,7 +34,6 @@ def get_file_as_base64(file_path):
 
 image_base64 = get_file_as_base64(IMAGE_FILE)
 hero_universal_base64 = get_file_as_base64(HERO_UNIVERSAL_ICON)
-peakvalo = get_file_as_base64(peakvalo)
 
 if image_base64 and hero_universal_base64:
     IMAGE_HTML = f"""
@@ -125,9 +124,9 @@ st.subheader("My Journey So Far")
 
 carousel_items = [
     {
-        "title": "Peaked Immortal 2 in Valorant",
-        "text": "gaming achievement",
-        "img": f"data:image/png;base64,{peakvalo}"
+        "title": "Project: AsaNaBus (Django App)",
+        "text": "A web application built with Django that features live bus tracking and route management for commuters.",
+        "img": f"data:image/png;base64,{hero_universal_base64}"
     },
     {
         "title": "Achievement: Student Pilot",
@@ -188,7 +187,7 @@ with col1:
                 View my projects and code repositories.
             </p>
             <a href="https://github.com/naweeeeeh" target="_blank" class="custom-link-button">
-                GitHub
+                Go to GitHub
             </a>
         """)
 
@@ -205,7 +204,7 @@ with col2:
                 Connect with me professionally.
             </p>
             <a href="https://www.linkedin.com/in/naweeeeeh/" target="_blank" class="custom-link-button">
-                LinkedIn
+                Go to LinkedIn
             </a>
         """)
 

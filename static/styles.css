@@ -246,12 +246,19 @@ div[data-testid="stCarousel"] > div[data-key="carousel"]:hover {
     font-size: 1.25rem;
     font-weight: 700;
 }
+
 .carousel-item-text {
     font-family: 'Radiance', sans-serif !important;
     color: #E0E0E0;
     font-size: 0.95rem;
     min-height: 60px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
+div[data-testid="stCarousel"] > div[data-key="carousel"]:hover .carousel-item-text {
+    opacity: 1;
+}
+
 .carousel-item-image {
     width: 48px;
     height: 48px;
@@ -292,7 +299,6 @@ div[data-testid="stCarousel"] .dot.selected {
     opacity: 1.0 !important;
 }
 
-/* --- NEW SECTION: Responsive Media Query --- */
 @media (max-width: 768px) {
     .carousel-item-title {
         font-size: 1.1rem;
@@ -302,9 +308,9 @@ div[data-testid="stCarousel"] .dot.selected {
         min-height: auto;
     }
     .carousel-item-image {
-        width: 64px;  /* Changed from 48px */
-        height: 64px; /* Changed from 48px */
-        margin: 0.5rem auto 1rem auto; /* Explicitly add auto margins for centering */
+        width: 64px;
+        height: 64px;
+        margin: 0.5rem auto 1rem auto;
     }
     div[data-testid="stCarousel"] > div[data-key="carousel"] {
         padding: 1rem 1.5rem 2rem 1.5rem;
