@@ -250,16 +250,16 @@ div[data-testid="stCarousel"] > div[data-key="carousel"]:hover {
     font-family: 'Radiance', sans-serif !important;
     color: #E0E0E0;
     font-size: 0.95rem;
-    min-height: 50px;
+    min-height: 60px;
 }
 .carousel-item-image {
-    width: 80px;
-    height: 80px;
+    width: 48px;
+    height: 48px;
     margin: 0.5rem auto 1rem auto;
-    border: 2px solid #555;
+    border: none;
     border-radius: 4px;
     object-fit: contain;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: transparent;
 }
 
 div[data-testid="stCarousel"] .control-arrow {
@@ -290,4 +290,29 @@ div[data-testid="stCarousel"] .dot {
 div[data-testid="stCarousel"] .dot.selected {
     background: #E53935 !important;
     opacity: 1.0 !important;
+}
+
+@media (max-width: 768px) {
+    .carousel-item-title {
+        font-size: 1.1rem;
+    }
+    .carousel-item-text {
+        font-size: 0.9rem;
+        min-height: auto;
+    }
+    .carousel-item-image {
+        width: 48px;
+        height: 48px;
+    }
+    div[data-testid="stCarousel"] > div[data-key="carousel"] {
+        padding: 1rem 1.5rem 2rem 1.5rem;
+    }
+    div[data-testid="stCarousel"] .control-arrow {
+        height: 30px;
+        width: 30px;
+        top: calc(50% - 25px) !important;
+    }
+    .custom-columns {
+        flex-direction: column;
+    }
 }
