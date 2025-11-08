@@ -1,3 +1,13 @@
+[data-testid="stSidebar"] {
+    width: 35% !important;
+    min-width: 350px;
+    max-width: 500px;
+}
+
+[data-testid="stAppViewContainer"] > .main {
+    margin-left: 35% !important;
+}
+
 [data-testid="stAppViewContainer"] > .main {
     background-image: url("radiant_dire5.jpg");
     background-size: cover;
@@ -15,8 +25,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.7); 
-    z-index: -1; 
+    background: rgba(0, 0, 0, 0.7);
+    z-index: -1;
 }
 
 @font-face {
@@ -99,10 +109,10 @@ h1 {
     border-left: 4px solid #00BFFF;
 }
 
-.main-content-video {
+.sidebar-video {
     width: 100%;
     border-radius: 5px;
-    margin-bottom: 1rem;
+    margin-top: 1rem;
     pointer-events: none;
 }
 
@@ -343,5 +353,12 @@ div[data-testid="stCarousel"] .dot.selected {
     }
     .custom-columns {
         flex-direction: column;
+    }
+
+    [data-testid="stSidebar"] {
+        width: 100% !important;
+    }
+    [data-testid="stAppViewContainer"] > .main {
+        margin-left: 0 !important;
     }
 }
