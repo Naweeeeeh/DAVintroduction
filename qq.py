@@ -14,8 +14,8 @@ IMAGE_FILE = "static/radiant_dire5.jpg"
 HERO_UNIVERSAL_ICON = "static/hero_universal.png"
 VIDEO_FILE = "static/dota_montage_webm.webm"
 LOGO_ICON = "static/logo.png"
-EXCELONE_ICON = "static/excelone.png"
-IMMORTAL_ICON = "static/immortal2.png"
+EXCELONE_ICON = "static/excel.png"
+IMMORTAL_ICON = "static/immo.png"
 MLBB_ICON = "static/mlbbnobg.png"
 
 
