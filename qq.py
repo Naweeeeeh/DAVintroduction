@@ -145,7 +145,7 @@ st.balloons()
 
 st.subheader("My Journey So Far")
 
-st.code("""// adjust the slidebar to reveal text contents """, language = 'cpp')
+st.code("""// adjust the sidebar to reveal text contents """, language = 'cpp')
 carousel_items = [
     {
         "title": "Project: ExcelOne (OOP1)",
