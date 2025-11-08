@@ -115,18 +115,19 @@ with st.sidebar:
     """)
 
 
-st.html(f"""
-        <video autoplay loop muted playsinline class="sidebar-video">
-            <source src="data:video/webm;base64,{video_base64}" type="video/webm">
-            Your browser does not support the video tag.
-        </video>
-    """)
-
 cpp = """
 cout << "Hello, World! I am Noeh!";
 cout << "I am a BSCS - 3 Student from Cebu Institute of Technology - University";
 """
 st.code(cpp, language='cpp')
+
+# --- VIDEO MOVED HERE ---
+st.html(f"""
+        <video autoplay loop muted playsinline class="main-content-video">
+            <source src="data:video/webm;base64,{video_base64}" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    """)
 
 st.html("""
     <p style="font-family: 'Radiance', sans-serif; font-size: 1rem; color: #E0E0E0;">
@@ -207,7 +208,7 @@ with col1:
                 View my projects and code repositories.
             </p>
             <a href="https://github.com/naweeeeeh" target="_blank" class="custom-link-button">
-                GitHub
+                Go to GitHub
             </a>
         """)
 
@@ -224,7 +225,7 @@ with col2:
                 Connect with me professionally.
             </p>
             <a href="https://www.linkedin.com/in/naweeeeeh/" target="_blank" class="custom-link-button">
-                LinkedIn
+                Go to LinkedIn
             </a>
         """)
 
