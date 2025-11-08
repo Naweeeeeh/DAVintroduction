@@ -145,7 +145,7 @@ st.subheader("My Journey So Far")
 carousel_items = [
     {
         "title": "Project: ExcelOne (OOP1)",
-        "text": "A platform for tutors and teachers to interact and make calls, built for our Object-Oriented Programming 1 project.",
+        "text": "A platform for tutors and teachers to interact and make calls, built for our Object-Oriented Programming 1 project using Java and WebRTC Components.",
         "img": f"data:image/png;base64,{excelone_base64}"
     },
     {
