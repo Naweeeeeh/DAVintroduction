@@ -1,0 +1,293 @@
+[data-testid="stAppViewContainer"] > .main {
+    background-image: url("radiant_dire5.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    z-index: 1;
+}
+
+[data-testid="stAppViewContainer"] > .main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); 
+    z-index: -1; 
+}
+
+@font-face {
+    font-family: 'Radiance';
+    src: url('radiance.woff') format('woff');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Radiance';
+    src: url('radiance-semibold.woff') format('woff');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Reaver';
+    src: url('Reaver-SemiBold.woff') format('woff');
+    font-weight: 600;
+}
+@font-face {
+    font-family: 'Reaver';
+    src: url('Reaver-Bold.woff') format('woff');
+    font-weight: 700;
+}
+
+body {
+    font-family: 'Radiance', sans-serif !important;
+    color: #E0E0E0;
+    background-color: #111;
+}
+
+[data-testid="stAppViewContainer"], [data-testid="stHeader"] {
+    background: transparent;
+}
+
+.main .block-container {
+    background: transparent;
+    padding-top: 3rem;
+}
+
+.main p, .main li, .main .stMarkdown {
+    font-family: 'Radiance', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Reaver', serif !important;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+h1 {
+    color: #E53935 !important;
+    text-shadow: 0 0 10px rgba(229, 57, 53, 0.7);
+}
+
+[data-testid="stSidebar"] {
+    background: rgba(10, 10, 10, 0.9) !important;
+    border-right: 1px solid #444;
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}
+[data-testid="stSidebar"] [data-testid="stImage"] img {
+    border-radius: 50%;
+    border: 3px solid #999;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+[data-testid="stSidebar"] h3 {
+    color: #E53935;
+    font-family: 'Reaver', serif !important;
+}
+[data-testid="stSidebar"] > div:first-child {
+     font-family: 'Radiance', sans-serif !important;
+}
+[data-testid="stSidebar"] [data-testid="stAlert"] {
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(5px);
+    font-family: 'Radiance', sans-serif !important;
+    color: #E0E0E0;
+}
+[data-testid="stSidebar"] [data-testid="stAlert"][data-baseweb="alert-info"] {
+    border-left: 4px solid #00BFFF;
+}
+
+.quote {
+    font-family: 'Radiance', sans-serif !important;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #CCCCCC;
+    border-left: 5px solid #E53935;
+    padding-left: 15px;
+    margin: 25px 0;
+    background-color: rgba(30, 30, 30, 0.7);
+    padding: 15px;
+    border-radius: 5px;
+}
+.sign-off {
+    font-family: 'Radiance', sans-serif !important;
+    text-align: right;
+    color: #999;
+    font-style: italic;
+    margin-top: -10px;
+}
+
+.skill-pill {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 4px;
+    background-color: #333;
+    color: #AEEA00;
+    border: 1px solid #AEEA00;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    font-family: 'Radiance', sans-serif !important;
+}
+
+[data-testid="stCodeBlock"] {
+    background: rgba(10, 10, 10, 0.9);
+    border: 1px solid #333;
+}
+[data-testid="stCodeBlock"] code {
+    font-family: 'Courier New', Courier, monospace !important;
+    color: #00FF7F;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"] {
+    background-color: rgba(20, 20, 20, 0.85);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 1px solid #444444;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease-in-out;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+}
+[data-testid="stVerticalBlockBorderWrapper"]:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    border-color: #E53935;
+}
+[data-testid="stVerticalBlockBorderWrapper"] p {
+    font-family: 'Radiance', sans-serif !important;
+}
+
+[data-testid="stVerticalBlockBorderWrapper"] [data-testid="stImage"] img {
+    background: #FAFAFA;
+    border-radius: 5px;
+    padding: 2px;
+}
+
+[data-testid="stLinkButton"] a,
+.custom-link-button {
+    background-color: #B22222;
+    color: white !important;
+    border: 2px solid #FF4500;
+    font-family: 'Reaver', serif !important;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 1rem;
+}
+[data-testid="stLinkButton"] a:hover,
+.custom-link-button:hover {
+    background-color: #FF4500;
+    border-color: #FFFFFF;
+    color: white !important;
+    text-decoration: none;
+}
+
+.custom-columns {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.custom-column {
+    flex: 1;
+}
+
+.custom-success {
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(5px);
+    font-family: 'Radiance', sans-serif !important;
+    color: #E0E0E0;
+    border-left: 4px solid #39FF14;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.custom-info {
+    background-color: rgba(30, 30, 30, 0.7);
+    backdrop-filter: blur(5px);
+    font-family: 'Radiance', sans-serif !important;
+    color: #E0E0E0;
+    border-left: 4px solid #00BFFF;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.custom-divider {
+    border-top: 1px solid #444;
+    margin: 1.5rem 0;
+}
+
+div[data-testid="stCarousel"] > div[data-key="carousel"] {
+    background-color: rgba(20, 20, 20, 0.85);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: 1px solid #444444;
+    backdrop-filter: blur(8px);
+    transition: all 0.2s ease-in-out;
+    padding: 1.5rem 2rem 2.5rem 2rem;
+    margin-bottom: 1rem;
+}
+div[data-testid="stCarousel"] > div[data-key="carousel"]:hover {
+    border-color: #E53935;
+}
+
+.carousel-item-title {
+    font-family: 'Reaver', serif !important;
+    color: #E53935 !important;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+.carousel-item-text {
+    font-family: 'Radiance', sans-serif !important;
+    color: #E0E0E0;
+    font-size: 0.95rem;
+    min-height: 50px;
+}
+.carousel-item-image {
+    width: 80px;
+    height: 80px;
+    margin: 0.5rem auto 1rem auto;
+    border: 2px solid #555;
+    border-radius: 4px;
+    object-fit: contain;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+div[data-testid="stCarousel"] .control-arrow {
+    background: rgba(229, 57, 53, 0.7) !important;
+    opacity: 0.8 !important;
+    height: 40px;
+    width: 40px;
+    top: calc(50% - 30px) !important;
+}
+div[data-testid="stCarousel"] .control-arrow:hover {
+    opacity: 1.0 !important;
+    background: #E53935 !important;
+}
+div[data-testid="stCarousel"] .control-prev.control-arrow::before {
+     border-right: 8px solid #FFFFFF !important;
+}
+div[data-testid="stCarousel"] .control-next.control-arrow::before {
+     border-left: 8px solid #FFFFFF !important;
+}
+
+div[data-testid="stCarousel"] .dot {
+    background: #888 !important;
+    opacity: 0.7 !important;
+    box-shadow: none !important;
+    width: 10px !important;
+    height: 10px !important;
+}
+div[data-testid="stCarousel"] .dot.selected {
+    background: #E53935 !important;
+    opacity: 1.0 !important;
+}

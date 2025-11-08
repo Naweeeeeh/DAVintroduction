@@ -2,65 +2,74 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from streamlit import container
+from streamlit_carousel import carousel
+import base64
+
+Noeh = "static/noeh.jpg"
+st.set_page_config(page_title='Noeh Introduction', page_icon=Noeh, layout='wide')
 
 GH_ICON = "static/github.png"
 LI_ICON = "static/linkedin.png"
-Noeh = "static/noeh.jpg"
+IMAGE_FILE = "static/radiant_dire5.jpg"
+HERO_UNIVERSAL_ICON = "static/hero_universal.png"
 
-st.set_page_config(page_title='Noeh Introduction', page_icon=Noeh, layout='wide')
+def local_css(file_name):
+    try:
+        with open(file_name) as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+    except FileNotFoundError:
+        st.error(f"CSS file not found. Make sure 'static/styles.css' exists.")
 
-st.html("""
-<style>
-    [data-testid="stSidebar"] [data-testid="stImage"] img {
-        border-radius: 50%;
-    }
+local_css("static/styles.css")
 
-    .skill-pill {
-        display: inline-block;
-        padding: 6px 12px;
-        margin: 4px;
-        background-color: #E8F0FE;
-        color: #1E88E5;
-        border: 1px solid #1E88E5;
-        border-radius: 16px;
-        font-weight: 500;
-        font-size: 0.85rem;
-    }
+@st.cache_data
+def get_file_as_base64(file_path):
+    try:
+        with open(file_path, "rb") as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
+    except FileNotFoundError:
+        st.error(f"File not found: {file_path}")
+        return None
 
-    [data-testid="stVerticalBlockBorderWrapper"] {
-        background-color: #FAFAFA;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-        transition: all 0.2s ease-in-out;
-        border: 1px solid #EEEEEE;
-    }
+image_base64 = get_file_as_base64(IMAGE_FILE)
+hero_universal_base64 = get_file_as_base64(HERO_UNIVERSAL_ICON)
 
-    [data-testid="stVerticalBlockBorderWrapper"]:hover {
-        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        transform: scale(1.01);
-        border-color: #1E88E5;
-    }
+if image_base64 and hero_universal_base64:
+    IMAGE_HTML = f"""
+    <style>
+    [data-testid="stAppViewContainer"] > .main {{
+        background-image: url("data:image/jpg;base64,{image_base64}");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+        z-index: 1;
+    }}
+    [data-testid="stAppViewContainer"] > .main::before {{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.7); 
+        z-index: -1; 
+    }}
+    [data-testid="stSidebar"] {{
+        background: rgba(10, 10, 10, 0.9) !important;
+        z-index: 1;
+    }}
+    .main .block-container {{
+        background: transparent;
+    }}
+    </style>
+    """
+    st.markdown(IMAGE_HTML, unsafe_allow_html=True)
+else:
+    st.error("A static asset was not found. Please check your 'static' folder.")
 
-    .quote {
-        font-style: italic;
-        font-size: 1.1rem;
-        color: #444444;
-        border-left: 5px solid #1E88E5;
-        padding-left: 15px;
-        margin: 25px 0;
-        background-color: #F5F5F5;
-        padding: 15px;
-        border-radius: 5px;
-    }
-
-    .sign-off {
-        text-align: right;
-        color: #888;
-        font-style: italic;
-        margin-top: -10px;
-    }
-</style>
-""")
 
 with st.sidebar:
     col1, col2, col3 = st.columns([1, 2, 1])
@@ -99,30 +108,69 @@ cout << "I am a BSCS - 3 Student from Cebu Institute of Technology - University"
 """
 st.code(cpp, language='cpp')
 
-st.markdown(
-    "I’m a total adrenaline junkie who loves trying out different sports and activities that get my heart racing. "
-    "If it’s fast, high, or a little crazy, I’m always ready to give it a shot because I love the thrill and excitement. "
-    "At the same time, I really enjoy being outdoors and exploring nature. "
-    "Hiking and discovering new trails is one of my favorite ways to relax and enjoy the fresh air whenever I get the chance. "
-    "I also dream to become an Ironman someday!")
+st.html("""
+    <p style="font-family: 'Radiance', sans-serif; font-size: 1rem; color: #E0E0E0;">
+    I’m a total adrenaline junkie who loves trying out different sports and activities that get my heart racing. 
+    If it’s fast, high, or a little crazy, I’m always ready to give it a shot because I love the thrill and excitement. 
+    At the same time, I really enjoy being outdoors and exploring nature. 
+    Hiking and discovering new trails is one of my favorite ways to relax and enjoy the fresh air whenever I get the chance. 
+    I also dream to become an Ironman someday!
+    </p>
+""")
 
 st.balloons()
 
-left, right = st.columns(2)
-with left:
-    st.subheader("Fun Facts About Me")
-    with container(border=True):
-        st.success("I flew a C-150 aircraft and still have my SPL up until now. (student)")
-        st.success("I love playing games during my free time, especially FPS, MOBA, and Open World games.")
-with right:
-    st.subheader("Quests")
-    with container(border=True):
-        st.info("I want to skydive at least once before I turn 30!")
-        st.info("Leave Philippines and start a new life abroad and explore the world.")
+st.subheader("My Journey So Far")
 
-st.divider()
+carousel_items = [
+    {
+        "title": "Project: AsaNaBus (Django App)",
+        "text": "A web application built with Django that features live bus tracking and route management for commuters.",
+        "img": f"data:image/png;base64,{hero_universal_base64}"
+    },
+    {
+        "title": "Achievement: Student Pilot",
+        "text": "Earned a Student Pilot License (SPL) and have hands-on experience flying a C-150 aircraft.",
+        "img": f"data:image/png;base64,{hero_universal_base64}"
+    },
+    {
+        "title": "Project: Neural Network Backpropagation",
+        "text": "Developed and manually calculated the backpropagation algorithm for a neural network, deepening my understanding of machine learning fundamentals.",
+        "img": f"data:image/png;base64,{hero_universal_base64}"
+    },
+    {
+        "title": "Project: Quantitative Analysis (Apriori)",
+        "text": "Implemented the Apriori algorithm for a quantitative analysis course project to discover frequent itemsets in a dataset.",
+        "img": f"data:image/png;base64,{hero_universal_base64}"
+    }
+]
 
-st.html("<h1 style='text-align: center; color: #1E88E5;'>Find me online!</h1>")
+carousel(items=carousel_items, width=1.0)
+
+
+st.html(f"""
+    <div class="custom-columns">
+        <div class="custom-column">
+            <h3>Fun Facts About Me</h3>
+            <div data-testid="stVerticalBlockBorderWrapper"> 
+                <div class="custom-success">I flew a C-150 aircraft and still have my SPL up until now. (student)</div>
+                <div class="custom-success" style="margin-bottom: 0;">I love playing games during my free time, especially FPS, MOBA, and Open World games.</div>
+            </div>
+        </div>
+
+        <div class="custom-column">
+            <h3>Quests</h3>
+            <div data-testid="stVerticalBlockBorderWrapper">
+                <div class="custom-info">I want to skydive at least once before I turn 30!</div>
+                <div class="custom-info" style="margin-bottom: 0;">Leave Philippines and start a new life abroad and explore the world.</div>
+            </div>
+        </div>
+    </div>
+""")
+
+st.html('<div class="custom-divider"></div>')
+
+st.html("<h1 style='text-align: center;'>Find me online!</h1>")
 
 col1, col2 = st.columns(2)
 
@@ -132,9 +180,16 @@ with col1:
         with img_col:
             st.image(GH_ICON, width=48)
         with title_col:
-            st.subheader("GitHub")
-        st.markdown("View my projects and code repositories.")
-        st.link_button("Go to GitHub", "https://github.com/naweeeeeh")
+            st.html("<h3 style='margin: 0; padding-top: 0.5rem;'>GitHub</h3>")
+
+        st.html(f"""
+            <p style="font-family: 'Radiance', sans-serif; margin-top: 1rem;">
+                View my projects and code repositories.
+            </p>
+            <a href="https://github.com/naweeeeeh" target="_blank" class="custom-link-button">
+                Go to GitHub
+            </a>
+        """)
 
 with col2:
     with st.container(border=True):
@@ -142,10 +197,16 @@ with col2:
         with img_col:
             st.image(LI_ICON, width=48)
         with title_col:
-            st.subheader("LinkedIn")
+            st.html("<h3 style='margin: 0; padding-top: 0.5rem;'>LinkedIn</h3>")
 
-        st.markdown("Connect with me professionally.")
-        st.link_button("Go to LinkedIn", "https://www.linkedin.com/in/naweeeeeh/")
+        st.html(f"""
+            <p style="font-family: 'Radiance', sans-serif; margin-top: 1rem;">
+                Connect with me professionally.
+            </p>
+            <a href="https://www.linkedin.com/in/naweeeeeh/" target="_blank" class="custom-link-button">
+                Go to LinkedIn
+            </a>
+        """)
 
 st.html("""
     <p class="quote">
