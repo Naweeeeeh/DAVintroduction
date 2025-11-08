@@ -142,8 +142,10 @@ st.html("""
 
 st.balloons()
 
+
 st.subheader("My Journey So Far")
 
+st.code("""// adjust the slidebar to reveal text contents """, language = 'cpp')
 carousel_items = [
     {
         "title": "Project: ExcelOne (OOP1)",
@@ -209,7 +211,7 @@ with col1:
                 View my projects and code repositories.
             </p>
             <a href="https://github.com/naweeeeeh" target="_blank" class="custom-link-button">
-                Go to GitHub
+                GitHub
             </a>
         """)
 
@@ -226,7 +228,7 @@ with col2:
                 Connect with me professionally.
             </p>
             <a href="https://www.linkedin.com/in/naweeeeeh/" target="_blank" class="custom-link-button">
-                Go to LinkedIn
+                LinkedIn
             </a>
         """)
 
