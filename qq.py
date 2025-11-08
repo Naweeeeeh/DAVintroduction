@@ -12,6 +12,12 @@ GH_ICON = "static/github.png"
 LI_ICON = "static/linkedin.png"
 IMAGE_FILE = "static/radiant_dire5.jpg"
 HERO_UNIVERSAL_ICON = "static/hero_universal.png"
+VIDEO_FILE = "static/dota_montage_webm.webm"
+LOGO_ICON = "static/logo.png"
+EXCELONE_ICON = "static/excelone.png"
+IMMORTAL_ICON = "static/immortal2.png"
+MLBB_ICON = "static/mlbbnobg.png"
+
 
 def local_css(file_name):
     try:
@@ -33,9 +39,15 @@ def get_file_as_base64(file_path):
         return None
 
 image_base64 = get_file_as_base64(IMAGE_FILE)
+video_base64 = get_file_as_base64(VIDEO_FILE)
+logo_base64 = get_file_as_base64(LOGO_ICON)
+excelone_base64 = get_file_as_base64(EXCELONE_ICON)
+immortal_base64 = get_file_as_base64(IMMORTAL_ICON)
+mlbb_base64 = get_file_as_base64(MLBB_ICON)
 hero_universal_base64 = get_file_as_base64(HERO_UNIVERSAL_ICON)
 
-if image_base64 and hero_universal_base64:
+
+if all([image_base64, video_base64, logo_base64, excelone_base64, immortal_base64, mlbb_base64, hero_universal_base64]):
     IMAGE_HTML = f"""
     <style>
     [data-testid="stAppViewContainer"] > .main {{
@@ -68,7 +80,7 @@ if image_base64 and hero_universal_base64:
     """
     st.markdown(IMAGE_HTML, unsafe_allow_html=True)
 else:
-    st.error("A static asset was not found. Please check your 'static' folder.")
+    st.error("A static asset was not found. Please check your 'static' folder and make sure all images are present.")
 
 
 with st.sidebar:
@@ -102,6 +114,14 @@ with st.sidebar:
         <div class="skill-pill">Kotlin</div>
     """)
 
+
+st.html(f"""
+        <video autoplay loop muted playsinline class="sidebar-video">
+            <source src="data:video/webm;base64,{video_base64}" type="video/webm">
+            Your browser does not support the video tag.
+        </video>
+    """)
+
 cpp = """
 cout << "Hello, World! I am Noeh!";
 cout << "I am a BSCS - 3 Student from Cebu Institute of Technology - University";
@@ -124,24 +144,24 @@ st.subheader("My Journey So Far")
 
 carousel_items = [
     {
-        "title": "Project: AsaNaBus (Django App)",
-        "text": "A web application built with Django that features live bus tracking and route management for commuters.",
-        "img": f"data:image/png;base64,{hero_universal_base64}"
+        "title": "Project: ExcelOne (OOP1)",
+        "text": "A platform for tutors and teachers to interact and make calls, built for our Object-Oriented Programming 1 project.",
+        "img": f"data:image/png;base64,{excelone_base64}"
     },
     {
-        "title": "Achievement: Student Pilot",
-        "text": "Earned a Student Pilot License (SPL) and have hands-on experience flying a C-150 aircraft.",
-        "img": f"data:image/png;base64,{hero_universal_base64}"
+        "title": "Project: Operation: BOOM! (Kotlin)",
+        "text": "A Minesweeper game built using Kotlin, featuring classic pixel art and gameplay mechanics.",
+        "img": f"data:image/png;base64,{logo_base64}"
     },
     {
-        "title": "Project: Neural Network Backpropagation",
-        "text": "Developed and manually calculated the backpropagation algorithm for a neural network, deepening my understanding of machine learning fundamentals.",
-        "img": f"data:image/png;base64,{hero_universal_base64}"
+        "title": "Achievement: Immortal 2 (Valorant)",
+        "text": "Peaked at the Immortal 2 rank in Valorant, placing me in the top percentile of competitive players.",
+        "img": f"data:image/png;base64,{immortal_base64}"
     },
     {
-        "title": "Project: Quantitative Analysis (Apriori)",
-        "text": "Implemented the Apriori algorithm for a quantitative analysis course project to discover frequent itemsets in a dataset.",
-        "img": f"data:image/png;base64,{hero_universal_base64}"
+        "title": "Achievement: Mythical Immortal (MLBB)",
+        "text": "Reached the top-tier Mythical Immortal rank in Mobile Legends: Bang Bang.",
+        "img": f"data:image/png;base64,{mlbb_base64}"
     }
 ]
 

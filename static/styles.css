@@ -99,6 +99,13 @@ h1 {
     border-left: 4px solid #00BFFF;
 }
 
+.sidebar-video {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 1rem;
+    pointer-events: none;
+}
+
 .quote {
     font-family: 'Radiance', sans-serif !important;
     font-style: italic;
@@ -224,6 +231,7 @@ h1 {
     margin: 1.5rem 0;
 }
 
+/* --- Carousel Styles (Updated) --- */
 div[data-testid="stCarousel"] > div[data-key="carousel"] {
     background-color: rgba(20, 20, 20, 0.85);
     border-radius: 5px;
@@ -236,6 +244,15 @@ div[data-testid="stCarousel"] > div[data-key="carousel"] {
 }
 div[data-testid="stCarousel"] > div[data-key="carousel"]:hover {
     border-color: #E53935;
+}
+
+/* This is the div that holds the title and text */
+div[data-testid="stCarousel"] .carousel-legend {
+    position: static !important; /* Forces it below the image */
+    background: transparent !important;
+    padding: 0 !important;
+    margin-top: 0.5rem;
+    text-align: center;
 }
 
 .carousel-item-title {
@@ -255,14 +272,16 @@ div[data-testid="stCarousel"] > div[data-key="carousel"]:hover {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
-div[data-testid="stCarousel"] > div[data-key="carousel"]:hover .carousel-item-text {
+
+/* Show text when hovering the whole slide (not just the carousel box) */
+div[data-testid="stCarousel"] .slide:hover .carousel-item-text {
     opacity: 1;
 }
 
 .carousel-item-image {
     width: 48px;
     height: 48px;
-    margin: 0.5rem auto 1rem auto;
+    margin: 0.5rem auto 0 auto; /* Center it, 0 margin on bottom */
     border: none;
     border-radius: 4px;
     object-fit: contain;
