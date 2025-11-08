@@ -7,7 +7,7 @@ import base64
 
 Noeh = "static/noeh.jpg"
 st.set_page_config(page_title='Noeh Introduction', page_icon=Noeh, layout='wide')
-
+peakvalo = "static/immortal2.png"
 GH_ICON = "static/github.png"
 LI_ICON = "static/linkedin.png"
 IMAGE_FILE = "static/radiant_dire5.jpg"
@@ -34,6 +34,7 @@ def get_file_as_base64(file_path):
 
 image_base64 = get_file_as_base64(IMAGE_FILE)
 hero_universal_base64 = get_file_as_base64(HERO_UNIVERSAL_ICON)
+peakvalo = get_file_as_base64(peakvalo)
 
 if image_base64 and hero_universal_base64:
     IMAGE_HTML = f"""
@@ -124,9 +125,9 @@ st.subheader("My Journey So Far")
 
 carousel_items = [
     {
-        "title": "Project: AsaNaBus (Django App)",
-        "text": "A web application built with Django that features live bus tracking and route management for commuters.",
-        "img": f"data:image/png;base64,{hero_universal_base64}"
+        "title": "Peaked Immortal 2 in Valorant",
+        "text": "gaming achievement",
+        "img": f"data:image/png;base64,{peakvalo}"
     },
     {
         "title": "Achievement: Student Pilot",
@@ -145,7 +146,7 @@ carousel_items = [
     }
 ]
 
-carousel(items=carousel_items, width=1.0)
+carousel(items=carousel_items, width=0.5)
 
 
 st.html(f"""

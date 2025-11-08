@@ -292,6 +292,7 @@ div[data-testid="stCarousel"] .dot.selected {
     opacity: 1.0 !important;
 }
 
+/* --- NEW SECTION: Responsive Media Query --- */
 @media (max-width: 768px) {
     .carousel-item-title {
         font-size: 1.1rem;
@@ -301,8 +302,9 @@ div[data-testid="stCarousel"] .dot.selected {
         min-height: auto;
     }
     .carousel-item-image {
-        width: 48px;
-        height: 48px;
+        width: 64px;  /* Changed from 48px */
+        height: 64px; /* Changed from 48px */
+        margin: 0.5rem auto 1rem auto; /* Explicitly add auto margins for centering */
     }
     div[data-testid="stCarousel"] > div[data-key="carousel"] {
         padding: 1rem 1.5rem 2rem 1.5rem;
